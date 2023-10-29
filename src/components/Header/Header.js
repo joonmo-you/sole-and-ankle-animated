@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { QUERIES, WEIGHTS } from "../../constants";
+import { QUERIES } from "../../constants";
 import Logo from "../Logo";
+import NavLink from "../NavLink";
 import Icon from "../Icon";
 import UnstyledButton from "../UnstyledButton";
 import SuperHeader from "../SuperHeader";
@@ -20,30 +21,12 @@ const Header = () => {
           <Logo />
         </LogoWrapper>
         <DesktopNav>
-          <NavLink href="/sale">
-            <MainText>Sale</MainText>
-            <HoverText>Sale</HoverText>
-          </NavLink>
-          <NavLink href="/new">
-            <MainText>New&nbsp;Releases</MainText>
-            <HoverText>New&nbsp;Releases</HoverText>
-          </NavLink>
-          <NavLink href="/men">
-            <MainText>Men</MainText>
-            <HoverText>Men</HoverText>
-          </NavLink>
-          <NavLink href="/women">
-            <MainText>Women</MainText>
-            <HoverText>Women</HoverText>
-          </NavLink>
-          <NavLink href="/kids">
-            <MainText>Kids</MainText>
-            <HoverText>Kids</HoverText>
-          </NavLink>
-          <NavLink href="/collections">
-            <MainText>Collections</MainText>
-            <HoverText>Collections</HoverText>
-          </NavLink>
+          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/new">New&nbsp;Releases</NavLink>
+          <NavLink href="/men">Men</NavLink>
+          <NavLink href="/women">Women</NavLink>
+          <NavLink href="/kids">Kids</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
         </DesktopNav>
         <MobileActions>
           <ShoppingBagButton>
@@ -90,7 +73,6 @@ const DesktopNav = styled.nav`
   display: flex;
   gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
   margin: 0px 48px;
-  overflow: hidden;
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
@@ -127,48 +109,6 @@ const Filler = styled.div`
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
-  }
-`;
-
-const NavLink = styled.a`
-  position: relative;
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--color-gray-900);
-
-  &:first-of-type {
-    color: var(--color-secondary);
-  }
-`;
-
-const MainText = styled.span`
-  display: block;
-  font-weight: ${WEIGHTS.medium};
-  transform: translateY(0);
-  transition: transform 300ms;
-  will-change: transform;
-
-  ${NavLink}:hover &,
-  ${NavLink}:focus & {
-    transform: translateY(-30px);
-    transition: transform 300ms;
-  }
-`;
-
-const HoverText = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-weight: ${WEIGHTS.bold};
-  transform: translateY(30px);
-  transition: transform 300ms;
-  will-change: transform;
-
-  ${NavLink}:hover &, 
-  ${NavLink}:focus & {
-    transform: translateY(0px);
-    transition: transform 200ms;
   }
 `;
 

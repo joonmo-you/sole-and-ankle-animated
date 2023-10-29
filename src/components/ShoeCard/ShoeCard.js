@@ -62,16 +62,26 @@ const Wrapper = styled.article`
 
 const ImageWrapper = styled.div`
   overflow: hidden;
+  border-radius: 16px 16px 4px 4px;
 `;
 
 const Image = styled.img`
+  display: block;
   width: 100%;
-  border-radius: 16px 16px 4px 4px;
-  transition: transform 300ms ease-in;
+  filter: brightness(90%);
+  transform-origin: 50% 75%;
+  will-change: transform;
+  transition: transform 600ms, filter 1000ms;
+  transition-timing-function: ease-in;
 
-  ${ImageWrapper}:hover & {
-    transform: scale(1.1);
-    transition: transform 100ms ease-out;
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    ${Link}:hover &,
+    ${Link}:focus & {
+      transform: scale(1.1);
+      filter: brightness(100%);
+      transition: transform 200ms, filter 400ms;
+      transition-timing-function: ease-out;
+    }
   }
 `;
 
